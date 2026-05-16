@@ -1,0 +1,9 @@
+# Ignore generated experiment data folders
+exp1_data/
+exp2_data/
+
+# Ignore any stray text files just in case
+*.txt
+
+# Ignore Python cache folders (good standard practice)
+__pycache__/
