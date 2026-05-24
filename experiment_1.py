@@ -1,7 +1,12 @@
+# Name: Aaditya Sharma
+# Student ID: 1814346
+# COMP90038 Assignment 2
+# Description: Conducted Experiment 1 to compare the running time of a Competitor Array and a Max-Heap for push-only sequences of varying lengths.
 import os
 import time
 from main import operation_sequences, competitior_array, max_heap, gen_element
 
+# Create the directory for storing generated sequence files
 DATA_DIR = "experiment_1_data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -36,13 +41,14 @@ def test_structures(filename):
     runs = 5
 
     for i in range(runs):
+        # Time the Competitor Array
         array = competitior_array()
         start_array = time.perf_counter()
         for key in keys_to_push:
             array.push(key)
         end_array = time.perf_counter()
         total_array_time = total_array_time + (end_array - start_array)
-
+# Time the Max-Heap
         heap = max_heap()
         start_heap = time.perf_counter()
         for key in keys_to_push:
@@ -51,7 +57,7 @@ def test_structures(filename):
         total_heap_time = total_heap_time + (end_heap - start_heap)
 
     
-    #Calculating average and converting time to microseconds for detail
+    #Calculating average and converting time to microseconds
 
     average_array_time_micro = (total_array_time / runs) * 10**6
     average_heap_time_micro = (total_heap_time / runs) * 10**6

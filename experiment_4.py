@@ -1,7 +1,13 @@
+# Name: Aaditya Sharma
+# Student ID: 1814346
+# COMP90038 Assignment 2
+# Description: Conducts Experiment 4 to compare the efficiency of building a Max-Heap using heapify approach versus one-by-one push operations.
+
 import os
 import time
 from main import operation_sequences, competitior_array, max_heap, gen_element
 
+# Reusing the push-only datasets generated in Experiment 1
 DATA_DIR = "experiment_1_data"
 
 def read_push_file(filename):

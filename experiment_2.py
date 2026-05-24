@@ -1,8 +1,14 @@
+# Name: Aaditya Sharma
+# Student ID: 1814346
+# COMP90038 Assignment 2
+# Description: Conducted Experiment 2 to measure the performance of a Competitor Array and a Max-Heap when varying the percentage of getTop operations.
+
 import os
 import time
 import random
 from main import operation_sequences, competitior_array, max_heap, gen_element
 
+# create the directory for storing generated sequence files
 DATA_DIR = "experiment_2_data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -39,7 +45,7 @@ def test_experiment2_files(filename):
     total_array_time = 0
     total_heap_time = 0
     runs = 5
-
+    # Time the Competitor Array
     for i in range(runs):
         array = competitior_array()
         start_array = time.perf_counter()
@@ -50,7 +56,7 @@ def test_experiment2_files(filename):
                 array.getTop()
         end_array = time.perf_counter()
         total_array_time = total_array_time + (end_array - start_array)
-
+        # Time the Max-Heap
         heap = max_heap()
         start_heap = time.perf_counter()
         for curr_operation in operations_from_file:
@@ -60,7 +66,8 @@ def test_experiment2_files(filename):
                 heap.getTop()
         end_heap = time.perf_counter()
         total_heap_time = total_heap_time + (end_heap - start_heap)
-
+        
+    # Calculate and output the average running times
     average_array_time_micro = (total_array_time / runs) * 10**6
     average_heap_time_micro = (total_heap_time / runs) * 10**6
 

@@ -1,6 +1,12 @@
+# Name: Aaditya Sharma
+# Student ID: 1814346
+# COMP90038 Assignment 2
+# Description: Core data structures (Competitor Array and Max-Heap) and data generation functions for the experimental report
+
 import os
 import random
 
+# Data Generation functions
 def gen_element():
 
     key = random.randint(0, 10**7)
@@ -13,7 +19,7 @@ def gen_pop():
 def gen_getTop():
     return (3)
 
-
+# Generate a random sequence of operations for testing
 def operation_sequences(filename, total_operations):
     with open(filename, 'w') as f:
         f.write(str(f"{total_operations}\n"))
@@ -34,13 +40,14 @@ def operation_sequences(filename, total_operations):
                 operation_3 = gen_getTop()
                 f.write(f"{operation_3}\n")
 
+# Competitor Arrya initalization and methods
 class competitior_array:
 
     def __init__(self):
         self.length = 10**6
         self.A = [0] * self.length
-        self.cnt = 0 #current number of elements in A
-        self.imax = -1
+        self.cnt = 0 # current number of elements in A
+        self.imax = -1 # index of the maximum element
     
     def push(self,key):
         self.A[self.cnt] = key
@@ -69,7 +76,8 @@ class competitior_array:
             return None
         keymax = self.A[self.imax]
         return keymax
-        
+
+# Max-Heap implementation
 class max_heap:
     def __init__(self):
         self.length = 10**6

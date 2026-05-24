@@ -1,8 +1,14 @@
+# Name: Aaditya Sharma
+# Student ID: 1814346
+# COMP90038 Assignment 2
+# Description: Conducts Experiment 3 to analyze the performance of the Array compared to the Max-Heap when varying the percentage of pop operations.
+
 import os
 import time
 import random
 from main import operation_sequences, competitior_array, max_heap, gen_element
 
+# Define and create the directory for storing generated sequence files
 DATA_DIR = "experiment_3_data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -41,6 +47,7 @@ def test_experiment3_files(filename):
     runs = 5
     
     for i in range(runs):
+        # Time the Competitor Array
         array = competitior_array()
         start_array = time.perf_counter()
         for curr_operation in operations_from_file:
@@ -50,7 +57,7 @@ def test_experiment3_files(filename):
                 array.pop()
         end_array = time.perf_counter()
         total_array_time += (end_array - start_array)
-        
+        # Time the Max-Heap
         heap = max_heap()
         start_heap = time.perf_counter()
         for curr_operation in operations_from_file:
@@ -61,6 +68,7 @@ def test_experiment3_files(filename):
         end_heap = time.perf_counter()
         total_heap_time += (end_heap - start_heap)
         
+    # Calculate and output the average running times
     average_array_time_micro = (total_array_time / runs) * 10**6
     average_heap_time_micro = (total_heap_time / runs) * 10**6
     
